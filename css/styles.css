@@ -21,7 +21,7 @@ ul,ol{list-style:none}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--sunset);outline-offset:3px}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.page{max-width:1440px;margin:0 auto;background:var(--bg);overflow:hidden}
+.page{margin:0 auto;background:var(--bg);overflow:hidden}
 
 /* Type styles */
 .d-h1,.d-h2,.d-h3,.d-quote,.d-wordmark,.t-card,.t-logo{font-family:var(--font-display);font-weight:500;letter-spacing:-0.03em}
@@ -321,4 +321,17 @@ button{font:inherit;color:inherit;cursor:pointer}
   .form .two{flex-direction:column}
   .stat .num{font-size:48px;line-height:52px}
   .d-wordmark{font-size:44px;line-height:46px}
+}
+
+/* Full-bleed on wide screens: backgrounds span the viewport, content stays on the 1440 grid */
+@media (min-width:1441px){
+  :root{--edge:calc((100vw - 1440px)/2)}
+  .announce{padding-left:calc(84px + var(--edge));padding-right:calc(84px + var(--edge))}
+  .hero{padding-left:calc(84px + var(--edge));padding-right:calc(84px + var(--edge))}
+  .nav-pill{left:calc(84px + var(--edge));right:calc(84px + var(--edge))}
+  .scroll-cue{left:calc(84px + var(--edge))}
+  .intro,.highlights{padding-left:calc(84px + var(--edge));padding-right:calc(84px + var(--edge))}
+  .map-section,.matter,.newsletter,.stories,.cta,.shop,.news,.faq,.footer,.projects-head{padding-left:calc(48px + var(--edge));padding-right:calc(48px + var(--edge))}
+  .track{padding-left:calc(48px + var(--edge));padding-right:calc(48px + var(--edge));scroll-padding:0 calc(48px + var(--edge))}
+  .hero{min-height:max(900px,calc(100vh - 42px))}
 }
